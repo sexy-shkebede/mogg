@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" crossorigin="" href="static/styles.css">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="about me">
+  <meta property="og:site_name" content="Andrew Linim's website">
+  <meta property="og:url" content="https://holin.im/">
+  <meta property="og:description" content="а ещё — хранилище и лаборатория">
+
+  <title>Andrew Linim</title>
+</head>
+
+<body>
+  <div id="rinimuweb">
+    <div style="flex: 1; width: 100%;">
+      <script src="https://keepandroidopen.org/banner.js?size=mini&lang=en"></script>
+
+    <img src="static/signature.png" class="signature" alt="signature" style="display: block;">
+
+    <div style="margin-top: 20px;">
+      <h2 style="display: inline;">Andrew Linim</h2>
+      <h4 style="display: inline;">(aka Andorei Rinimu, holinim, hlnm)</h4>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <h5 class="scope-button important">
+        <a href="https://blog.holinim.ru">Blog</a>
+      </h5>
+      <h5 class="scope-button important">
+        <a href="https://t.me/theHolinim">TGC</a>
+      </h5>
+      <h5 class="scope-button primary">
+        <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/12ADB6D5443281BB5A5B6C1D94A245762704A2C1">GPG</a>
+      </h5>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px; align-items: stretch;">
+      <h5 class="scope-card primary factsbox" style="margin: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <b><span class="material-symbols-outlined" style='font-size: 14px;'>info</span> about me</b>
+        </div>
+        <span style="font-weight: normal;">
+          <span id="age-counter" class='code'>14.996101091</span> y.o. dumbass from Smolensk, Russia.
+        </span>
+      </h5>
+
+      <h5 class="scope-card secondary factsbox" style="margin: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <b><span class="material-symbols-outlined" style='font-size: 14px;'>sms</span> contact me</b>
+        </div>
+        <span style="font-weight: normal;">
+          <a href="https://t.me/fuck_vk">Telegram</a>,
+          <a href="https://x.com/hlnmplus">X</a>,
+          <a href="sms:+79605851632">SMS</a>,
+          <a href="https://holin.im/donate">donate</a>.<br>
+          e-mail (see footer)
+      </h5>
+
+      <h5 class="scope-card secondary factsbox" style="margin: 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <b><span class="material-symbols-outlined" style='font-size: 14px;'>help</span> did you know...</b>
+          <span style="font-size: 0.9em; opacity: 0.8;">21/31</span>
+        </div>
+        <span style="font-weight: normal;">
+          all those facts were written on Pixel 7        </span>
+      </h5>
+    </div><br>
+
+    and other cool websites:
+    <div style="margin-top: 15px; margin-bottom: 40px;">
+      <a href="index.html"><img src="static/banners/holinim.ru.png" class="banner"></a>
+      <a href="https://makura.su"><img src="static/banners/makura.su.gif" class="banner"></a>
+      <a href="https://ivan2282.com"><img src="static/banners/ivan2282.com.png" class="banner"></a>
+      <a href="https://furrmi.ru"><img src="static/banners/furrmi.ru.png" class="banner"></a>
+    </div>
+    <br><br>
+    </div>
+
+    <div style='font-size: 14px; opacity: 0.8;'>
+      <span class='code'>me [at] holin [dot] im<br>2023-2026</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const ageSpan = document.getElementById('age-counter');
+      if (ageSpan) {
+        const birthYear = 2011;
+        function updateAge() {
+          const now = Date.now();
+          const mskDate = new Date(now + 3 * 3600 * 1000);
+          const currentYear = mskDate.getUTCFullYear()
+
+          let lastBirthdayMs = Date.UTC(currentYear, 7, 8, 21, 0, 0);
+          let nextBirthdayMs;
+          let baseAge;
+
+          if (now >= lastBirthdayMs) {
+              baseAge = currentYear - birthYear;
+              nextBirthdayMs = Date.UTC(currentYear + 1, 7, 8, 21, 0, 0);
+          } else {
+              baseAge = currentYear - birthYear - 1;
+              lastBirthdayMs = Date.UTC(currentYear - 1, 7, 8, 21, 0, 0);
+              nextBirthdayMs = Date.UTC(currentYear, 7, 8, 21, 0, 0);
+          }
+
+          const fraction = (now - lastBirthdayMs) / (nextBirthdayMs - lastBirthdayMs);
+          const ageInYears = baseAge + fraction;
+          ageSpan.textContent = ageInYears.toFixed(9);
+          requestAnimationFrame(updateAge);
+        }
+        updateAge();
+      }
+    })();
+  </script>
+</body>
+
+</html>
